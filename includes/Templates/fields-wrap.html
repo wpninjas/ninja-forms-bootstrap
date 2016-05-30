@@ -1,0 +1,12 @@
+<script id="nf-tmpl-field-wrap" type="text/template">
+    <div id="nf-field-<%= id %>-wrap" class="<%= renderWrapClass() %> form-group" data-field-id="<%= id %>">
+
+        <%= renderLabel() %>
+
+        <div class="nf-field-element"><%= renderElement() %></div>
+
+        <p class="help-block">
+            <%= ( 'undefined' != typeof desc_pos && 'none' != desc_pos ) ? renderDescText() : '' %>
+        </p>
+    </div>
+</script>

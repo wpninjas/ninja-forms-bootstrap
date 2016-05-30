@@ -1,0 +1,37 @@
+<script id="nf-tmpl-field-product" type="text/template">
+    <div class="nf-product-field <%= renderClasses() %> form-inline">
+        <%= renderProduct() %>
+    </div>
+</script>
+
+<script id="nf-tmpl-product-single" type="text/template">
+    <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+            <label class="nf-product-price-label">Price:</label>
+            <p class="nf-product-price form-control-static">$<%= product_price %></p>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+            <%= renderProductQuantity() %>
+        </div>
+    </div>
+</script>
+
+<script id="nf-tmpl-product-dropdown" type="text/template">
+    <span for="nf-field-<%= id %>">
+    <select id="nf-field-<%= id %>" name="nf-field-<%= id %>" class="<%= renderClasses() %> form-control">
+        <%= renderOptions() %>
+        <%= renderProductQuantity() %>
+    </select>
+    </span>
+</script>
+
+<script id="nf-tmpl-product-dropdown-option" type="text/template">
+    <option value="<%= value %>" <%= ( 1 == selected ) ? 'selected="selected"' : '' %>><%= label %></option>
+</script>
+
+<script id="nf-tmpl-product-quantity" type="text/template">
+    <label class="nf-product-quantity-label">Quantity:</label>
+    <input id="nf-field-qty-<%= id %>" name="nf-field-qty-<%= id %>" class="nf-field-qty nf-element form-control" type="number" min="0" size="10" value="<%= value %>"></span>
+</script>

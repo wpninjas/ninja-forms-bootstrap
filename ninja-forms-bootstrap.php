@@ -56,6 +56,20 @@ if( version_compare( get_option( 'ninja_forms_version', '0.0.0' ), '3.0', '>' ) 
          */
         public function __construct()
         {
+            add_filter( 'ninja_forms_field_template_file_paths', array( $this, 'template_paths' ) );
+        }
+
+        /**
+         * Template Paths
+         *
+         * @param $paths
+         * @return array
+         */
+        function template_paths( $paths )
+        {
+            $paths[] = NF_Bootstrap::$dir . 'includes/Templates/';
+
+            return $paths;
         }
 
         /**
@@ -76,7 +90,10 @@ if( version_compare( get_option( 'ninja_forms_version', '0.0.0' ), '3.0', '>' ) 
                 self::$dir = plugin_dir_path(__FILE__);
                 self::$url = plugin_dir_url(__FILE__);
                 spl_autoload_register( array( self::$instance, 'autoloader' ) );
+
+                new NF_Bootstrap_FieldClasses();
             }
+
             return self::$instance;
         }
 
